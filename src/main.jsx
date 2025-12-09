@@ -10,6 +10,7 @@ import AllTicket from './Components/AllTicket/AllTicket.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import Register from './Pages/AuthPages/Register.jsx';
 import Login from './Pages/AuthPages/Login.jsx';
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -48,5 +49,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+     <ToastContainer />
   </StrictMode>,
 )
