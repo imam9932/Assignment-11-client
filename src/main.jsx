@@ -11,6 +11,8 @@ import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import Register from './Pages/AuthPages/Register.jsx';
 import Login from './Pages/AuthPages/Login.jsx';
 import { ToastContainer } from 'react-toastify';
+import AuthProvider from './Context/AuthProvider.jsx';
+import UserProfile from './Pages/DashboardPages/UserProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,13 @@ const router = createBrowserRouter([
        {
          
         path:"/dashboard",
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        children:[
+          {
+            path:'user-profile',
+            element:<UserProfile></UserProfile>
+          }
+        ]
        },
        {
          
@@ -47,8 +55,10 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <AuthProvider>
+    <StrictMode>
     <RouterProvider router={router} />
      <ToastContainer />
-  </StrictMode>,
+  </StrictMode>
+  </AuthProvider>,
 )
