@@ -12,7 +12,7 @@ import Register from './Pages/AuthPages/Register.jsx';
 import Login from './Pages/AuthPages/Login.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Context/AuthProvider.jsx';
-import UserProfile from './Pages/DashboardPages/UserProfile.jsx';
+import VendorProfile from './Pages/DashboardPages/VendorProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children:[
           {
-            path:'user-profile',
-            element:<UserProfile></UserProfile>
+            path:'vendor-profile',
+            element:<VendorProfile></VendorProfile>
           }
         ]
        },

@@ -1,36 +1,36 @@
 import React from 'react';
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser, FaRegUserCircle } from 'react-icons/fa';
 import { TbBus } from 'react-icons/tb';
-import { Outlet } from 'react-router';
-
+import { Link, Outlet } from 'react-router';
+ 
 const Dashboard = () => {
   return (
     <div className="drawer lg:drawer-open">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Navbar */}
-    <nav className="navbar w-full bg-base-300">
+    <nav className="navbar w-full bg-linear-to-r from-orange-500 to-red-500 rounded-r-md sticky top-0">
       <label htmlFor="my-drawer-4" aria-label="open sidebar" className="btn btn-square btn-ghost">
-        
+         
       </label>
-      <div className="px-4 text-orange-500 font-bold text-xl">Dashboard</div>
+      <h2 className="px-4 text-white font-bold text-2xl  ">Dashboard</h2>
     </nav>
-    {/* Page content here */}
-     <Outlet></Outlet>
+    <Outlet></Outlet>
+  </div>
 
-  <div className="drawer-side is-drawer-close:overflow-visible">
+  <div className="drawer-side is-drawer-close:overflow-visible mt-">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-    <div className="flex min-h-full flex-col items-start bg-orange-500 is-drawer-close:w-14 is-drawer-open:w-64">
+    <div className="flex min-h-full flex-col items-start bg-linear-to-b from-orange-500 to-red-500 is-drawer-close:w-14 is-drawer-open:w-64">
       {/* Sidebar content here */}
       <ul className="menu w-full grow">
         {/* List item */}
-        <li>
-          <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-15" data-tip="User-profile">
-            {/* Home icon */}
-           <FaRegUser />
+        <li className='md:mt-15'>
+          <Link to={'vendor-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Vendor profile">
+            {/* user profile */}
+            <FaRegUserCircle />
 
-            <span className="is-drawer-close:hidden">User-profile</span>
-          </button>
+            <span className="is-drawer-close:hidden">Vendor Profile</span>
+          </Link>
         </li>
 
         {/* List item */}
@@ -44,7 +44,6 @@ const Dashboard = () => {
       </ul>
     </div>
   </div>
-</div>
 </div>
   );
 };
