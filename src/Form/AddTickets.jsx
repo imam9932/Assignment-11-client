@@ -18,7 +18,7 @@ const AddTickets = () => {
   console.log(errors);
 
   const onSubmit = async data => {
-    console.log(data);
+    
     const {title,image,fromLocation,toLocation,transportType,ticketQuantity,price,date,time } = data;
     const imageFile = image[0];
     const imageURL = await imageUpload(imageFile)
