@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaRegUser, FaRegUserCircle } from 'react-icons/fa';
 import { TbBus } from 'react-icons/tb';
+import { TiDocumentAdd } from 'react-icons/ti';
 import { Link, Outlet } from 'react-router';
  
 const Dashboard = () => {
@@ -23,13 +24,26 @@ const Dashboard = () => {
     <div className="flex min-h-full flex-col items-start bg-linear-to-b from-orange-500 to-red-500 is-drawer-close:w-14 is-drawer-open:w-64">
       {/* Sidebar content here */}
       <ul className="menu w-full grow">
+
+
         {/* List item */}
         <li className='md:mt-15'>
+          {/* vendor profile */}
           <Link to={'vendor-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Vendor profile">
             {/* user profile */}
             <FaRegUserCircle />
 
             <span className="is-drawer-close:hidden">Vendor Profile</span>
+          </Link>
+
+
+          {/* add tickets */}
+          <Link to={'add-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Add Tickets">
+             
+            <TiDocumentAdd />
+
+
+            <span className="is-drawer-close:hidden">Add Tickets</span>
           </Link>
         </li>
 

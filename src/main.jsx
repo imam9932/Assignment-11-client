@@ -13,6 +13,7 @@ import Login from './Pages/AuthPages/Login.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Context/AuthProvider.jsx';
 import VendorProfile from './Pages/DashboardPages/VendorProfile.jsx';
+import AddTickets from './Form/AddTickets.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
           {
             path:'vendor-profile',
             element:<VendorProfile></VendorProfile>
+          },
+          {
+            path:'add-tickets',
+            element: <AddTickets></AddTickets>
           }
         ]
        },
