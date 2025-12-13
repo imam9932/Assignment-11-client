@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Context/AuthProvider.jsx';
 import VendorProfile from './Pages/DashboardPages/VendorProfile.jsx';
 import AddTickets from './Form/AddTickets.jsx';
+import MyAddedTickets from './Pages/DashboardPages/MyAddedTickets.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,12 +37,17 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children:[
           {
+            index:true,
             path:'vendor-profile',
             element:<VendorProfile></VendorProfile>
           },
           {
             path:'add-tickets',
             element: <AddTickets></AddTickets>
+          },
+          {
+            path:'my-added-tickets',
+            element:  <MyAddedTickets></MyAddedTickets>
           }
         ]
        },

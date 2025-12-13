@@ -3,10 +3,13 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { imageUpload } from '../Utility/index'
 import { AuthContext } from '../Context/AuthContext';
+import UseAxiosSecure from '../Context/UseAxiosSecure';
+import Swal from 'sweetalert2';
 
 
 const AddTickets = () => {
   const { user } = useContext(AuthContext)
+  const axiosSecure=UseAxiosSecure();
 
   const {
     register,
@@ -42,7 +45,23 @@ const AddTickets = () => {
       }
     }
     console.log(ticketsData);
+     // save tickets to the db
+  axiosSecure.post('/tickets',ticketsData)
+  .then(res=>{
+    console.log('after saving parcel',res.data);
+    if(res.data.insertedId){
+       Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your ticket has been added",
+  showConfirmButton: false,
+  timer: 1500
+});
+    }
+  })
   };
+
+ 
 
   // for date
   const formatDate = (date) => date.toISOString().slice(0, 10);

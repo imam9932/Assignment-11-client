@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegUser, FaRegUserCircle } from 'react-icons/fa';
 import { TbBus } from 'react-icons/tb';
-import { TiDocumentAdd } from 'react-icons/ti';
+import { TiDocumentAdd, TiTicket } from 'react-icons/ti';
 import { Link, Outlet } from 'react-router';
  
 const Dashboard = () => {
@@ -30,7 +30,7 @@ const Dashboard = () => {
         <li className='md:mt-15'>
           {/* vendor profile */}
           <Link to={'vendor-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Vendor profile">
-            {/* user profile */}
+            {/* vendor profile */}
             <FaRegUserCircle />
 
             <span className="is-drawer-close:hidden">Vendor Profile</span>
@@ -44,6 +44,16 @@ const Dashboard = () => {
 
 
             <span className="is-drawer-close:hidden">Add Tickets</span>
+          </Link>
+
+          {/* my added tickets */}
+          <Link to={'my-added-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="My added Tickets">
+             
+           <TiTicket />
+
+
+
+            <span className="is-drawer-close:hidden">My Added Tickets</span>
           </Link>
         </li>
 
