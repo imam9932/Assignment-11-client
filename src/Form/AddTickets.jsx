@@ -38,7 +38,7 @@ const AddTickets = () => {
       time,
 
        
-      seller: {
+      vendor: {
         image: user?.photoURL,
         name: user?.displayName,
         email: user?.email
@@ -48,7 +48,7 @@ const AddTickets = () => {
      // save tickets to the db
   axiosSecure.post('/tickets',ticketsData)
   .then(res=>{
-    console.log('after saving parcel',res.data);
+    console.log('after saving tickets',res.data);
     if(res.data.insertedId){
        Swal.fire({
   position: "top-end",
@@ -70,7 +70,7 @@ const AddTickets = () => {
   const maxDate = new Date();
   maxDate.setDate(today.getDate() + 30);
   return (
-    <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
+    <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50 mt-5'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
           <div className='space-y-6'>
@@ -294,46 +294,46 @@ const AddTickets = () => {
 
            
 
-              {/* seller name */}
+              {/* vendor name */}
             <div className='space-y-1 text-sm'>
-              <label htmlFor='seller name' className='block text-gray-600'>
-                Seller name
+              <label htmlFor='vendor name' className='block text-gray-600'>
+                Vendor name
               </label>
               <input
                 className='w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-500 rounded-md bg-white'
 
-                id='sellerName'
+                id='vendorName'
                 type='text'
                  defaultValue={user.displayName}
 
 
-                {...register('sellerName', {
-                  required: 'seller Name is required'
+                {...register('vendorName', {
+                  required: 'vendor Name is required'
                 })}
               />
               {
-                errors.sellerName && <p className='text-red-500  '>seller name is Required</p>
+                errors.vendorName && <p className='text-red-500  '>vendor name is Required</p>
               }
             </div>
-              {/* seller email */}
+              {/* vendor email */}
             <div className='space-y-1 text-sm'>
-              <label htmlFor='seller email' className='block text-gray-600'>
-                Seller email
+              <label htmlFor='vendor email' className='block text-gray-600'>
+                vendor email
               </label>
               <input
                 className='w-full px-4 py-3 text-gray-800 border border-orange-300 focus:outline-orange-500 rounded-md bg-white'
 
-                id='sellerEmail'
+                id='vendorEmail'
                 type='text'
                  defaultValue={user.email}
 
 
-                {...register('sellerEmail', {
-                  required: 'seller email is required'
+                {...register('vendorEmail', {
+                  required: 'vendor email is required'
                 })}
               />
               {
-                errors.sellerEmail && <p className='text-red-500  '>seller email is Required</p>
+                errors.vendorEmail && <p className='text-red-500  '>vendor email is Required</p>
               }
             </div>
 
