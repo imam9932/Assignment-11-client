@@ -9,37 +9,10 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
  
 import { AuthContext } from '../../Context/AuthContext';
+import { saveOrUpdateUser } from '../../Utility';
 
 const Register = () => {
-//    const {
-//     register,
-//     handleSubmit,
-    
-//     formState: { errors },
-//   } = useForm();
 
-//   const handleSubmitData=async(data)=>{
-//      const {name,image,email,password}=data;
-//      console.log(name);
-//      const imageFile=image[0];
-//      console.log(imageFile);
-//      const formData=new FormData();
-//      formData.append('image',imageFile);
-//      console.log(formData);
-
-//      try{
-// const {data}=await axios.post(`https://api.imgbb.com/1/upload?key=a52fc5e71b64ac0b6b528963b985be2a`,formData)
-
-// const imageURL=await imageUpload(imageFile)
-
-
-//      }
-//      catch(error){
-//       console.log(error)
-//       toast.error(error.message);
-
-//      }
-//   }
 
 const {createUserFunc,setUser,setLoading,user,loginWithGoogle}=useContext(AuthContext)
 const navigate=useNavigate();
@@ -64,18 +37,21 @@ const location=useLocation();
 
     // create user
     createUserFunc(email,password)
-    .then(res=>{
+    .then(async(res)=>{
       console.log(res.user);
       toast.success('Account created successfully')
       setUser(user)
       setLoading(false)
+
+      // save or update user to the db
+      saveOrUpdateUser({name,email})
        navigate(`${location.state? location.state : "/"}`)
     })
     .catch(err=>{
       console.log(err.message);
       toast.error(err.message)
     })
-  
+   
   
   };
 

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import UseAxiosSecure from '../../Context/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const MyAddedTickets = () => {
   const {user:vendor}=useContext(AuthContext);
@@ -56,6 +57,34 @@ axiosSecure.get(`/my-added-tickets/${vendor.email}`)
     
   }
 })};
+
+const handleUpdateTickets=(id)=>{
+  console.log(id)
+  const data=myTickets.filter(f=>f._id===id)
+  console.log(data);
+  //  e.preventDefault();
+  //   const simbol={
+  //     title:e.target.title.value,
+  //    fromLocation:e.target.fromLocation.value,
+  //    toLocation:e.target.toLocation.value,
+  //    date:e.target.date.value,
+  //    time:e.target.time.value,
+  //    price:e.target.price.value,
+  //    ticketQuantity:e.target.ticketQuantity.value,
+      
+  //   }
+    axiosSecure.patch(`/my-added-tickets/${data._id}`)
+    .then(res=>res.json())
+     .then(data=>{
+      console.log(data);
+      toast.success('ticket updated successfully')
+      // navigate('/myBooks')
+     })
+     .catch(err=>{
+      console.log(err)
+      toast.error(err.message)
+     })
+}
   return (
     <div className='mt-5'>
       <h1 className='text-center text-3xl text-orange-500 font-bold underline'>My Tickets : ( {myTickets.length} )</h1>
@@ -89,14 +118,14 @@ axiosSecure.get(`/my-added-tickets/${vendor.email}`)
  {/* <button className='btn bg-orange-500 text-white hover:bg-red-500'>Update</button> */}
 
  {/* The button to open modal */}
-<label htmlFor="my_modal_6" className="btn bg-orange-500 text-white hover:bg-red-500">Update</label>
+<label  htmlFor="my_modal_6" className="btn bg-orange-500 text-white hover:bg-red-500">Update</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my_modal_6" className="modal-toggle  " />
 <div className="modal" role="dialog">
   <div className="modal-box">
     <h3 className="text-lg font-bold">{myTicket.title}</h3>
-     <form      >
+     <form onSubmit={handleUpdateTickets}     >
               <fieldset className="fieldset ">
                 
           

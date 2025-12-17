@@ -6,13 +6,21 @@ const axiosSecure=axios.create({
 
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from "./AuthContext";
+import { getAuth } from "firebase/auth";
 
 const UseAxiosSecure = () => {
   const {user }=useContext(AuthContext)
   useEffect(()=>{
     // intercept request
-    const reqInterceptor=axiosSecure.interceptors.request.use(config=>{
-      config.headers.Authorization=`Bearer ${user?.accessToken}`
+    const reqInterceptor=axiosSecure.interceptors.request.use(async(config)=>{
+      const auth=getAuth();
+      const currentUser=auth.currentUser;
+
+      if(currentUser){
+        const token=await currentUser.getIdToken(true);
+
+        config.headers.Authorization=`Bearer ${token}`
+      }
       return config
     })
 
