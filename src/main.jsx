@@ -12,11 +12,12 @@ import Register from './Pages/AuthPages/Register.jsx';
 import Login from './Pages/AuthPages/Login.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Context/AuthProvider.jsx';
-import VendorProfile from './Pages/DashboardPages/VendorProfile.jsx';
+ 
 import AddTickets from './Form/AddTickets.jsx';
 import MyAddedTickets from './Pages/DashboardPages/MyAddedTickets.jsx';
 import UpdateTickets from './Pages/DashboardPages/UpdateTickets.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import UserProfile from './Pages/DashboardPages/UserProfile.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -43,8 +44,8 @@ const router = createBrowserRouter([
         children:[
           {
             index:true,
-            path:'vendor-profile',
-            element:<VendorProfile></VendorProfile>
+            path:'user-profile',
+            element: <UserProfile></UserProfile>
           },
           {
             path:'add-tickets',

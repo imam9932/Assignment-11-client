@@ -28,12 +28,12 @@ const Dashboard = () => {
 
         {/* List item */}
         <li className='md:mt-15'>
-          {/* vendor profile */}
-          <Link to={'vendor-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Vendor profile">
+          {/* user profile */}
+          <Link to={'user-profile'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="User profile">
             {/* vendor profile */}
             <FaRegUserCircle />
 
-            <span className="is-drawer-close:hidden">Vendor Profile</span>
+            <span className="is-drawer-close:hidden">User Profile</span>
           </Link>
 
 

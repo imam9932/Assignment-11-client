@@ -44,7 +44,7 @@ const location=useLocation();
       setLoading(false)
 
       // save or update user to the db
-      saveOrUpdateUser({name,email})
+      await saveOrUpdateUser({name,email})
        navigate(`${location.state? location.state : "/"}`)
     })
     .catch(err=>{
@@ -57,12 +57,24 @@ const location=useLocation();
 
   // google login
   const handleGoogleSignIn=()=>{
+       
+     
     loginWithGoogle()
-    .then(res=>{
+    .then(async(res)=>{
       console.log(res.user)
       toast.success('Google login successful')
       setUser(user)
       setLoading(false)
+
+      // save or update user to the db
+      await saveOrUpdateUser({ 
+      image: user?.displayName,
+    name: user?.displayName,
+    
+
+      } ,
+       )
+
        navigate(`${location.state? location.state : "/"}`)
     })
     .catch(err=>{

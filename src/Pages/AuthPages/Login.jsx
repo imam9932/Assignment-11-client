@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { TbBus } from 'react-icons/tb';
 import { toast } from 'react-toastify';
+import { saveOrUpdateUser } from '../../Utility';
 
 const Login = () => {
   const {loginWIthEmailFunc,user,setUser,setLoading,loginWithGoogle}=useContext(AuthContext)
@@ -22,6 +23,12 @@ const location=useLocation()
           toast.success(' Login successful')
           setUser(user)
           setLoading(false)
+// save or update user in db
+        saveOrUpdateUser({
+        name: user?.displayName,
+        email: user?.email,
+        image: user?.photoURL,
+      })
           navigate(`${location.state? location.state : "/"}`)
         })
         .catch(err=>{
@@ -40,6 +47,13 @@ const location=useLocation()
       toast.success('Google login successful')
       setUser(user)
       setLoading(false)
+
+      // / save or update user in db
+        saveOrUpdateUser({
+        name: user?.displayName,
+        email: user?.email,
+        image: user?.photoURL,
+      })
        navigate(`${location.state? location.state : "/"}`)
     })
     .catch(err=>{
