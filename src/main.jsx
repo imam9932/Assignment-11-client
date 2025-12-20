@@ -18,6 +18,7 @@ import MyAddedTickets from './Pages/DashboardPages/MyAddedTickets.jsx';
 import UpdateTickets from './Pages/DashboardPages/UpdateTickets.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import UserProfile from './Pages/DashboardPages/UserProfile.jsx';
+import ErrorPage from './Pages/ErrorPage.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:  <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
        {
         index:true,
