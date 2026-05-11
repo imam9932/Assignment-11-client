@@ -23,7 +23,7 @@ const Navbar = () => {
   const links=<div className='flex gap-5'>
     <NavLink className='text-orange-500 font-bold' to={'/'}>Home</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/all-ticket'}>All Ticket</NavLink>
-    <NavLink className='text-orange-500 font-bold' to={'/dashboard'}>Dashboard</NavLink>
+    <NavLink className='text-orange-500 font-bold' to={'/dashboard/user-profile'}>Dashboard</NavLink>
   </div>
   return (
   <div className="navbar bg-base-100 shadow-sm mt-5 sticky top-0">
@@ -65,7 +65,7 @@ const Navbar = () => {
   </ul>
 </div>
         ) : (
-           <Link to={'/register'} className="btn bg-red-500 text-white">Register</Link>
+           <Link to={'/register2'} className="btn bg-red-500 text-white">Register</Link>
         )}
 
    

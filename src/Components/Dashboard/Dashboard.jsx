@@ -3,8 +3,16 @@ import { FaRegUser, FaRegUserCircle } from 'react-icons/fa';
 import { TbBus } from 'react-icons/tb';
 import { TiDocumentAdd, TiTicket } from 'react-icons/ti';
 import { Link, Outlet } from 'react-router';
+import { PiUserListFill } from "react-icons/pi";
+import UseAuth from '../../Context/UseAuth';
+import useRole from '../../Context/useRole';
+import { MdManageAccounts } from "react-icons/md";
+
+
  
 const Dashboard = () => {
+  
+  const {role}=useRole()
   return (
     <div className="drawer lg:drawer-open">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -36,8 +44,10 @@ const Dashboard = () => {
             <span className="is-drawer-close:hidden">User Profile</span>
           </Link>
 
-
-          {/* add tickets */}
+{
+  role==='vendor'&&
+         <>
+           {/* add tickets */}
           <Link to={'add-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Add Tickets">
              
             <TiDocumentAdd />
@@ -46,7 +56,7 @@ const Dashboard = () => {
             <span className="is-drawer-close:hidden">Add Tickets</span>
           </Link>
 
-          {/* my added tickets */}
+           {/* my added tickets */}
           <Link to={'my-added-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="My added Tickets">
              
            <TiTicket />
@@ -54,17 +64,45 @@ const Dashboard = () => {
 
 
             <span className="is-drawer-close:hidden">My Added Tickets</span>
+          </Link></>
+
+}
+         
+
+
+         {
+          role==='admin' && <>
+           {/*users page */}
+          <Link to={'users'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="All users">
+             
+             {/* users icon */}
+           <PiUserListFill />
+
+
+
+
+            <span className="is-drawer-close:hidden">All Users</span>
           </Link>
+          
+          
+
+            {/*manage ticket */}
+          <Link to={'manage-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Manage-Tickets">
+             
+             {/* manage icon */}
+          <MdManageAccounts />
+
+
+
+
+
+            <span className="is-drawer-close:hidden">Mange Tickets</span>
+          </Link>
+          </>
+         }
         </li>
 
-        {/* List item */}
-        <li>
-          <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
-            {/* Settings icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
-            <span className="is-drawer-close:hidden">Settings</span>
-          </button>
-        </li>
+       
       </ul>
     </div>
   </div>

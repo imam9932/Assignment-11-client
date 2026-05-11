@@ -19,6 +19,9 @@ import UpdateTickets from './Pages/DashboardPages/UpdateTickets.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import UserProfile from './Pages/DashboardPages/UserProfile.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
+import Register2 from './Pages/AuthPages/Register2.jsx';
+import Users from './Pages/DashboardPages/Users.jsx';
+import ManageTicket from './Pages/DashboardPages/ManageTicket.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -60,13 +63,26 @@ const router = createBrowserRouter([
           {
             path:'update-tickets',
             element:  <UpdateTickets></UpdateTickets>
-          }
+          },
+          {
+            path:'users',
+            element: <Users></Users>
+          },
+          {
+            path:'manage-tickets',
+            element:  <ManageTicket></ManageTicket>
+          },
         ]
        },
        {
          
         path:"/register",
         element:  <Register></Register>
+       },
+       {
+         
+        path:"/register2",
+        element:<Register2></Register2>
        },
        {
          

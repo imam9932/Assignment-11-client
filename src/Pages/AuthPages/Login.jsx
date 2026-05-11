@@ -4,9 +4,10 @@ import { AuthContext } from '../../Context/AuthContext';
 import { TbBus } from 'react-icons/tb';
 import { toast } from 'react-toastify';
 import { saveOrUpdateUser } from '../../Utility';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
-  const {loginWIthEmailFunc,user,setUser,setLoading,loginWithGoogle}=useContext(AuthContext)
+  const {loginWIthEmailFunc,user,setUser,setLoading}=useContext(AuthContext)
 
   const navigate=useNavigate()
 const location=useLocation()
@@ -40,27 +41,28 @@ const location=useLocation()
   };
 
   // google login
-  const handleGoogleSignIn=()=>{
-    loginWithGoogle()
-    .then(res=>{
-      console.log(res.user)
-      toast.success('Google login successful')
-      setUser(user)
-      setLoading(false)
+  // const handleGoogleSignIn=()=>{
+  //   loginWithGoogle()
+  //   .then(res=>{
+  //     console.log(res.user)
+  //     toast.success('Google login successful')
+  //        navigate(location?.state || '/');
+  //     setUser(user)
+  //     setLoading(false)
 
-      // / save or update user in db
-        saveOrUpdateUser({
-        name: user?.displayName,
-        email: user?.email,
-        image: user?.photoURL,
-      })
-       navigate(`${location.state? location.state : "/"}`)
-    })
-    .catch(err=>{
-      console.log(err.message)
-      toast.error(err.message)
-    })
-  }
+  //     // / save or update user in db
+  //       saveOrUpdateUser({
+  //       name: user?.displayName,
+  //       email: user?.email,
+  //       image: user?.photoURL,
+  //     })
+  //      navigate(`${location.state? location.state : "/"}`)
+  //   })
+  //   .catch(err=>{
+  //     console.log(err.message)
+  //     toast.error(err.message)
+  //   })
+  // }
 
   return (
     <div className=' border-base-300 rounded-box w-xs border p-4 mx-auto my-20 font-bold text-orange-500'>
@@ -86,12 +88,15 @@ const location=useLocation()
        <p className='text-center'>------------or------------</p>
    {/* google login */}
    
-   <div type='button' onClick={handleGoogleSignIn}  >
+   {/* <div type='button' onClick={handleGoogleSignIn}  >
    <button className="btn bg-orange-500 w-full mt-2 text-white border-[#e5e5e5]">
      <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
      Login with Google
    </button>
-   </div>
+   </div> 
+   */}
+
+   <SocialLogin></SocialLogin>
    
    
    <div  >
