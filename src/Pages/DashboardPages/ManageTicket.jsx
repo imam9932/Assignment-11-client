@@ -5,13 +5,13 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 
 const ManageTicket = () => {
-      const {user}=UseAuth();
+    
     const axiosSecure=UseAxiosSecure()
 
     const {refetch,data:tickets=[]}=useQuery({
         queryKey:['tickets'],
         queryFn:async()=>{
-            const res=await axiosSecure.get('/tickets',user);
+            const res=await axiosSecure.get('/tickets');
             return res.data
         }
     });
@@ -36,6 +36,33 @@ const ManageTicket = () => {
                                 Swal.fire({
                                     title: `Accepted`,
                                     text: "He can published ticket now.",
+                                    icon: "success"
+                                });
+                            });
+                        }
+                })
+        
+    }
+    const handleRejectTickets=tickets=>{
+         const statusInfo={status:'rejected'};
+                axiosSecure.patch(`/tickets/${tickets._id}/status`,statusInfo)
+                .then(res=>{
+                     if (res.data.modifiedCount) {
+        
+                            Swal.fire({
+                                title: "Are you sure?",
+                                text: `${tickets.title} is rejected`,
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, make it!"
+                            }).then((result) => {
+                                if (result.isConfirmed)
+                                    refetch()
+                                Swal.fire({
+                                    title: `Accepted`,
+                                    text: "He can't published ticket more.",
                                     icon: "success"
                                 });
                             });
@@ -82,10 +109,19 @@ const ManageTicket = () => {
     <div className='gap-5 flex mt-2'>
   
 {
-    ticket.status==='accepted'? 
-     <button className='btn hover:bg-orange-500 text-white  bg-red-500'  >Reject</button>
-     :
-     <button  htmlFor="my_modal_6" className="btn bg-orange-500 text-white hover:bg-red-500" onClick={()=>handleAcceptTickets(ticket)}>Accept</button>
+    ticket.status==='accepted'?( 
+    <>
+     <button onClick={()=>handleRejectTickets(ticket)} className='btn hover:bg-orange-500 text-white  bg-red-500'  >Reject</button></>)
+     : ticket.status==='pending'?( <>  <button  htmlFor="my_modal_6" className="btn bg-orange-500 text-white hover:bg-red-500" onClick={()=>handleAcceptTickets(ticket)}>Accept</button> 
+     
+      <button onClick={()=>handleRejectTickets(ticket)} className='btn hover:bg-orange-500 text-white  bg-red-500'  >Reject</button>
+      </>
+      ):
+      status==='rejected'? (
+        <><button  htmlFor="my_modal_6" className="btn bg-orange-500 text-white hover:bg-red-500" onClick={()=>handleAcceptTickets(ticket)}>Accept</button> 
+     </>
+      ):null
+    
 }
 
  

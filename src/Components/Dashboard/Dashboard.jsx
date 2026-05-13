@@ -7,6 +7,8 @@ import { PiUserListFill } from "react-icons/pi";
 import UseAuth from '../../Context/UseAuth';
 import useRole from '../../Context/useRole';
 import { MdManageAccounts } from "react-icons/md";
+import { RiAdvertisementFill } from "react-icons/ri";
+
 
 
  
@@ -91,12 +93,17 @@ const Dashboard = () => {
              
              {/* manage icon */}
           <MdManageAccounts />
+ <span className="is-drawer-close:hidden">Mange Tickets</span>
+          </Link>
 
 
+            {/*advertise tickets */}
+          <Link to={'advertise-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Advertise-Tickets">
+             
+             {/* advertise icon */}
+          <RiAdvertisementFill />
 
-
-
-            <span className="is-drawer-close:hidden">Mange Tickets</span>
+ <span className="is-drawer-close:hidden">Advertise Tickets</span>
           </Link>
           </>
          }
