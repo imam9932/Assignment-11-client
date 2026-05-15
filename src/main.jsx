@@ -25,6 +25,7 @@ import ManageTicket from './Pages/DashboardPages/ManageTicket.jsx';
 import AdvertiseTickets from './Pages/DashboardPages/AdvertiseTickets.jsx';
 import AdvertisedTickets from './Components/AdvertisedTickets/AdvertisedTickets.jsx';
 import TicketsDetails from './Components/TicketsDetails/TicketsDetails.jsx';
+import MyBookingTickets from './Pages/DashboardPages/UserDashBoard/MyBookingTickets.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -88,6 +89,12 @@ const router = createBrowserRouter([
           {
             path:'advertise-tickets',
             element:   <AdvertiseTickets></AdvertiseTickets>
+          },
+
+          // for customer
+          {
+            path:'bookings-tickets',
+            element: <MyBookingTickets></MyBookingTickets>
           },
         ]
        },

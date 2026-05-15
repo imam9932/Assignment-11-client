@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegUser, FaRegUserCircle } from 'react-icons/fa';
-import { TbBus } from 'react-icons/tb';
+import { TbBrandBooking, TbBus } from 'react-icons/tb';
 import { TiDocumentAdd, TiTicket } from 'react-icons/ti';
 import { Link, Outlet } from 'react-router';
 import { PiUserListFill } from "react-icons/pi";
@@ -45,6 +45,23 @@ const Dashboard = () => {
 
             <span className="is-drawer-close:hidden">User Profile</span>
           </Link>
+
+
+          {/* customer bookings tickets */}
+          {
+            role==='customer' && <>
+               <Link to={'bookings-tickets'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="My Tickets">
+             
+           <TbBrandBooking />
+
+
+
+            <span className="is-drawer-close:hidden">Bookings Tickets</span>
+          </Link>
+            
+            
+            </>
+          }
 
 {
   role==='vendor'&&
