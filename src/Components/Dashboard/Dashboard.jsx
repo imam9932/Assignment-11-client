@@ -6,8 +6,10 @@ import { Link, Outlet } from 'react-router';
 import { PiUserListFill } from "react-icons/pi";
 import UseAuth from '../../Context/UseAuth';
 import useRole from '../../Context/useRole';
-import { MdManageAccounts } from "react-icons/md";
+import { MdCollectionsBookmark, MdManageAccounts } from "react-icons/md";
 import { RiAdvertisementFill } from "react-icons/ri";
+import { GrTransaction } from "react-icons/gr";
+
 
 
 
@@ -58,6 +60,17 @@ const Dashboard = () => {
 
             <span className="is-drawer-close:hidden">Bookings Tickets</span>
           </Link>
+
+          {/* transaction id */}
+               <Link to={'transactionId'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Transaction Id">
+             
+           <GrTransaction />
+
+
+
+
+            <span className="is-drawer-close:hidden">TransactionId</span>
+          </Link>
             
             
             </>
@@ -83,7 +96,20 @@ const Dashboard = () => {
 
 
             <span className="is-drawer-close:hidden">My Added Tickets</span>
-          </Link></>
+          </Link>
+
+           {/*requested bookings tickets */}
+          <Link to={'requested-bookings'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Requested Bookings">
+             
+          <MdCollectionsBookmark />
+
+
+
+
+            <span className="is-drawer-close:hidden">Requested Bookings</span>
+          </Link>
+          
+          </>
 
 }
          

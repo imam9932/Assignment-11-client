@@ -34,7 +34,7 @@ return res.data;
     <h1 className='font-bold text-orange-700'>Title : {myTicket.title}</h1>
      <div className='text-orange-400'>
         <p>Price : {myTicket.price} TK</p>
-      <p>Quantity : {myTicket.ticketQuantity}</p>
+      <p>Available Quantity : {myTicket.ticketQuantity}</p>
       <p>Transport Type : {myTicket.transportType}</p>
      </div>
     

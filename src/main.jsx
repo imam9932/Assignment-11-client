@@ -26,6 +26,10 @@ import AdvertiseTickets from './Pages/DashboardPages/AdvertiseTickets.jsx';
 import AdvertisedTickets from './Components/AdvertisedTickets/AdvertisedTickets.jsx';
 import TicketsDetails from './Components/TicketsDetails/TicketsDetails.jsx';
 import MyBookingTickets from './Pages/DashboardPages/UserDashBoard/MyBookingTickets.jsx';
+import RequestedBookings from './Pages/DashboardPages/RequestedBookings(Vendor(/RequestedBookings.jsx';
+import PaymentSuccess from './Pages/DashboardPages/Payment/PaymentSuccess.jsx';
+import PaymentCancel from './Pages/DashboardPages/Payment/PaymentCancel.jsx';
+import TransactionId from './Pages/DashboardPages/UserDashBoard/TransactionId.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -66,6 +70,7 @@ const router = createBrowserRouter([
             path:'user-profile',
             element: <UserProfile></UserProfile>
           },
+          // for vendor
           {
             path:'add-tickets',
             element: <AddTickets></AddTickets>
@@ -78,6 +83,12 @@ const router = createBrowserRouter([
             path:'update-tickets',
             element:  <UpdateTickets></UpdateTickets>
           },
+          {
+            path:'requested-bookings',
+            element:   <RequestedBookings></RequestedBookings>
+          },
+
+          // for admin
           {
             path:'users',
             element: <Users></Users>
@@ -95,6 +106,22 @@ const router = createBrowserRouter([
           {
             path:'bookings-tickets',
             element: <MyBookingTickets></MyBookingTickets>
+          },
+          {
+            path:'transactionId',
+            element: <TransactionId></TransactionId>
+          },
+          // {
+          //   path:'payment/:ticketId',
+          //   element:  <Payment></Payment>
+          // },
+          {
+            path:'payment-success',
+            element: <PaymentSuccess></PaymentSuccess>
+          },
+          {
+            path:'payment-cancelled',
+            element:  <PaymentCancel></PaymentCancel>
           },
         ]
        },

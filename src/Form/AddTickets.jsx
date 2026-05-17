@@ -159,7 +159,7 @@ const AddTickets = () => {
                 <option value='Bus'>Bus</option>
                 <option value="Train">Train</option>
                 <option value='Lonch'>Lonch</option>
-                <option value='Lonch'>Air</option>
+                <option value='Air'>Air</option>
 
               </select>
 

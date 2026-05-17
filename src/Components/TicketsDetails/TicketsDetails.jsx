@@ -51,6 +51,7 @@ const vendorEmail=vendor?.email;
         const {name,email,title,fromLocation,toLocation,price,quantity,arrivingDate,vendorEmail}=data;
 
         const bookingData={
+            ticketId:ticket._id,
             name,
             email,
             title,
@@ -60,7 +61,8 @@ const vendorEmail=vendor?.email;
             quantity,
             arrivingDate,
             status:'pending',
-            vendorEmail
+            vendorEmail,
+            paymentStatus:'unpaid',
         };
         console.log(bookingData)
          axiosSecure.post('/bookingData',bookingData)
@@ -73,10 +75,12 @@ const vendorEmail=vendor?.email;
           title: "Your request has been submitted",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
         navigate('/advertised-tickets')
             
-          })
+    }
+    
+        )
 
         }
     console.log(ticket);
@@ -101,12 +105,12 @@ const vendorEmail=vendor?.email;
                     </div>
                     <div className='flex gap-2 text-orange-400'>
                         <p>Price : {ticket.price} TK</p>
-                        <p>Quantity : {ticket.ticketQuantity}</p>
+                        <p>Available Quantity : {ticket.ticketQuantity}</p>
                     </div>
                     <button ></button>
 
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <button className='btn bg-amber-500 text-white mt-2' onClick={() => document.getElementById('my_modal_1').showModal()}>Book Now</button>
+                    <button disabled={ticket.quantity===0} className='btn bg-amber-500 text-white mt-2' onClick={() => document.getElementById('my_modal_1').showModal()}> {ticket.quantity===0?'Sold out':'Book Now'}</button>
                     <dialog id="my_modal_1" className="modal">
                         <div className="modal-box">
                             <form onSubmit={handleSubmit(onSubmit)}>
