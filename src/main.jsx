@@ -30,6 +30,8 @@ import RequestedBookings from './Pages/DashboardPages/RequestedBookings(Vendor(/
 import PaymentSuccess from './Pages/DashboardPages/Payment/PaymentSuccess.jsx';
 import PaymentCancel from './Pages/DashboardPages/Payment/PaymentCancel.jsx';
 import TransactionId from './Pages/DashboardPages/UserDashBoard/TransactionId.jsx';
+import TotalRevenue from './Pages/DashboardPages/TotalRevenue/TotalRevenue.jsx';
+import LatestTickets from './Components/LatestTickets/LatestTickets.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -49,6 +51,11 @@ const router = createBrowserRouter([
         
         path:"/all-ticket",
         element: <AllTicket></AllTicket>
+       },
+       {
+        
+        path:"/latest-tickets",
+        element:  <LatestTickets></LatestTickets>
        },
        {
         
@@ -86,6 +93,10 @@ const router = createBrowserRouter([
           {
             path:'requested-bookings',
             element:   <RequestedBookings></RequestedBookings>
+          },
+          {
+            path:'revenue-Overview',
+            element:  <TotalRevenue></TotalRevenue>
           },
 
           // for admin

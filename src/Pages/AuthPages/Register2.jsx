@@ -61,15 +61,7 @@ const location=useLocation()
         }
 
 
-        //  // save or update user to the db
-        //       await saveOrUpdateUser({name,email})
-        //        navigate(`${location.state? location.state : "/"}`)
-        //     })
-        //     .catch(err=>{
-        //       console.log(err.message);
-        //       toast.error(err.message)
-        //     })
-
+         
 
         updateUserProfile(userProfile)
         .then(()=>{
@@ -86,10 +78,10 @@ const location=useLocation()
     })
   }
   return (
-    <div className='card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl'>
+    <div className='card bg-base-100 w-full mt-10 shrink-0 shadow-2xl flex flex-col items-center justify-center text-orange-400'>
       <div className='card-body'>
-        <h1 className='text-2xl text-secondary font-bold'>Create an Account</h1>
-      <h4>Register with ZapShift</h4>
+        <h1 className='text-2xl text-orange-400 font-bold'>Create an Account</h1>
+      <h4>Register with TikiTali</h4>
       <form onSubmit={handleSubmit(handleRegistration)} >
          <fieldset className="fieldset">
 
@@ -119,7 +111,7 @@ const location=useLocation()
 
 
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Register</button>
+          <button className="btn bg-orange-400 text-white mt-4">Register</button>
         </fieldset>
         <h4 className='text-center'>Already have an account? please <Link 
         state={location.state}

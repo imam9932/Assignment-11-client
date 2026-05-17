@@ -82,7 +82,7 @@ const location=useLocation()
      <input type="password" name='password' className="input text-black" placeholder="Password" />
      <p>Forget password ?</p>
    
-     <button className="btn btn-neutral mt-4 bg-orange-500 border-white">Register</button>
+     <button className="btn btn-neutral mt-4 bg-orange-500 border-white">Login</button>
    </fieldset>
        </form>
        <p className='text-center'>------------or------------</p>
@@ -103,7 +103,7 @@ const location=useLocation()
    <p className="text-center text-sm  mt-3">
                      Didn't have any account?{" "}
                      <Link
-                       to="/register"
+                       to="/register2"
                        className="text-blue-500 underline"
                      >
                        Register

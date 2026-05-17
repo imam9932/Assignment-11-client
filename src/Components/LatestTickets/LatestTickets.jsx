@@ -3,21 +3,20 @@ import UseAxiosSecure from '../../Context/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router';
 
-const AdvertisedTickets = () => {
-    const axiosSecure=UseAxiosSecure();
-    const {data:tickets=[]}=useQuery({
-        queryKey:['isAdvertise'],
-        queryFn:async()=>{
-const res=await axiosSecure.get('/tickets/isAdvertise');
-return res.data;
+const LatestTickets = () => {
+      const axiosSecure=UseAxiosSecure()
 
+    const {data:tickets=[]}=useQuery({
+        queryKey:['latestTickets'],
+        queryFn:async()=>{
+            const res=await axiosSecure.get('/tickets/latest');
+            return res.data
         }
-        
     });
-    console.log(tickets);
+    console.log(tickets)
     return (
-        <div>
-            <h1 className='text-center text-2xl text-orange-400 font-bold mt-10'>Premium Tickets For You</h1>
+          <div>
+            <h1 className='text-center text-2xl text-orange-400 font-bold mt-10'>Latest Tickets For You</h1>
 
 
              <div className='grid grid-cols-1 md:grid-cols-3 gap-3'>
@@ -57,4 +56,4 @@ return res.data;
     );
 };
 
-export default AdvertisedTickets;
+export default LatestTickets;

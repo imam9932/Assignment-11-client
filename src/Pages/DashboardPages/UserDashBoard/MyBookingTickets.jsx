@@ -23,12 +23,16 @@ const MyBookingTickets = () => {
       bookingId:b._id,
       customerEmail:b.email,
       ticketName:b.title,
+      vendorEmail:b.vendorEmail,
+
       
     }
+     
     const res=await axiosSecure.post('/payment-checkout-session',paymentInfo);
 
    window.location.href=(res.data.url);
    console.log(b)
+   console.log('vendor email',b.vendorEmail)
 
   }
    

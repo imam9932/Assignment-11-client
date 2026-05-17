@@ -28,10 +28,10 @@ const PaymentSuccess = () => {
              <h1 className='text-2xl font-bold   mt-10'>Payment Successful</h1> 
 
 
-            <p ><span className='font-bold text-lg'>Your Transaction Id :</span> {paymentInfo.transactionId}</p>
+            <p ><span className='font-bold text-lg mt-10'>Your Transaction Id :</span> {paymentInfo.transactionId}</p>
             
             
-            <Link to='/dashboard/bookings-tickets' className='btn btn-secondary mt-10'>Go to Your Bookings Tickets</Link> 
+            <Link to='/dashboard/bookings-tickets' className='btn bg-orange-400  text-white mt-10'>Go to Your Bookings Tickets</Link> 
         </div>
     );
 };

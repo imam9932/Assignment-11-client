@@ -9,6 +9,9 @@ import useRole from '../../Context/useRole';
 import { MdCollectionsBookmark, MdManageAccounts } from "react-icons/md";
 import { RiAdvertisementFill } from "react-icons/ri";
 import { GrTransaction } from "react-icons/gr";
+import { BsCalendarEvent } from "react-icons/bs";
+
+
 
 
 
@@ -107,6 +110,21 @@ const Dashboard = () => {
 
 
             <span className="is-drawer-close:hidden">Requested Bookings</span>
+          </Link>
+
+
+           {/* Revenue Overview   */}
+
+          <Link to={'revenue-Overview'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right mt-2" data-tip="Revenue Overview  ">
+             
+          <BsCalendarEvent />
+
+
+
+
+
+
+            <span className="is-drawer-close:hidden">Revenue Overview  </span>
           </Link>
           
           </>

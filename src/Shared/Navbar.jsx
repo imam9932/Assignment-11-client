@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TbBus } from 'react-icons/tb';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
@@ -6,6 +6,18 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const {user,loading,signOutFunc,setUser}=useContext(AuthContext);
+      const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+  useEffect(() => {
+    const html = document.querySelector('html')
+     html.setAttribute("data-theme", theme)
+     localStorage.setItem("theme", theme)
+  }, [theme])
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark": "light")
+  }
+
 
   const handleSignOut=()=>{
     signOutFunc()
@@ -23,6 +35,7 @@ const Navbar = () => {
   const links=<div className='flex gap-5'>
     <NavLink className='text-orange-500 font-bold' to={'/'}>Home</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/advertised-tickets'}>Advertise Tickets</NavLink>
+    <NavLink className='text-orange-500 font-bold' to={'/latest-tickets'}>Latest Tickets</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/all-ticket'}>All Ticket</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/dashboard/user-profile'}>Dashboard</NavLink>
   </div>
@@ -48,6 +61,12 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+       <input onChange={(e)=>handleTheme(e.target.checked)}
+            
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle mr-5"/>
+
 
 {/* conditional */}
 {loading ? (
@@ -57,7 +76,7 @@ const Navbar = () => {
         ) : user ? (
            <div className="dropdown dropdown-end px-5">
   <div tabIndex={0} role="button" className="border-none"><img src={user?.photoURL ? user.photoURL : 'https://via.placeholder.com/88'} className='h-10 w-10 rounded-full mx-auto' alt="user avatar" /></div>
-  <ul tabIndex="-1" className="dropdown-content menu bg-purple-700 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul tabIndex="-1" className="dropdown-content menu bg-purple-700 text-white rounded-box z-1 w-52 p-2 shadow-sm">
 
  
 
@@ -66,7 +85,7 @@ const Navbar = () => {
   </ul>
 </div>
         ) : (
-           <Link to={'/register2'} className="btn bg-red-500 text-white">Register</Link>
+           <Link to={'/login'} className="btn bg-red-500 text-white">Login</Link>
         )}
 
    
