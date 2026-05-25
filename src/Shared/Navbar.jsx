@@ -32,23 +32,25 @@ const Navbar = () => {
           toast.error(err.message)
         })
   }
-  const links=<div className='flex gap-5'>
+  const links=<div className='md:flex md:flex-row flex flex-col lg:flex lg:flex-row gap-5'>
     <NavLink className='text-orange-500 font-bold' to={'/'}>Home</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/advertised-tickets'}>Advertise Tickets</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/latest-tickets'}>Latest Tickets</NavLink>
-    <NavLink className='text-orange-500 font-bold' to={'/all-ticket'}>All Ticket</NavLink>
+    <NavLink className='text-orange-500 font-bold' to={'/all-ticket'}>All Tickets</NavLink>
+    <NavLink className='text-orange-500 font-bold' to={'/all-routes'}>Routes & Tickets</NavLink>
     <NavLink className='text-orange-500 font-bold' to={'/dashboard/user-profile'}>Dashboard</NavLink>
+    <NavLink className='text-orange-500 font-bold' to={'/why-choose-us'}>Why Choose Us</NavLink>
   </div>
   return (
   <div className="navbar bg-base-100 shadow-sm mt-5 sticky top-0">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden flex flex-col">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
         tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu flex flex-col menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow ">
 {links}
       </ul>
     </div>

@@ -77,7 +77,7 @@ const RequestedBookings = () => {
     console.log(bookingData);
     return (
         <div>
-            <h1>Bookings Request : {bookingData.length}</h1>
+            <h1 className='text-center text-orange-400 font-bold text-3xl m-10'>Bookings Request : {bookingData.length}</h1>
 
             <div className="overflow-x-auto">
   <table className="table">

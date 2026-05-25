@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure=axios.create({
-  baseURL:'http://localhost:3000'
+  baseURL:'https://assignment-11-server-seven-sigma.vercel.app'
 })
 
 import React, { useContext, useEffect } from 'react';

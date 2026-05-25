@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router';
 const Footer = () => {
   return (
    <div className='bg-orange-300 py-4 mt-10'>
-     <footer className="footer sm:footer-horizontal   text-base-content p-10 mt-5  flex gap-3 justify-center">
+     <footer className="footer sm:footer-horizontal   text-base-content p-10 mt-5  flex flex-col md:flex-row gap-3 justify-center">
   <nav className='flex-1'>
      <a className="btn btn-ghost text-xl"><span><TbBus />
     </span>Tiki<span className='font-bold text-orange-500'>Tali</span></a>

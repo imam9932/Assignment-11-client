@@ -1,16 +1,53 @@
-# React + Vite
+📌 Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ticket Booking Management System
 
-Currently, two official plugins are available:
+🎯 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Ticket Booking Management System is a full-stack web application where users can search, book, and pay for transport tickets online. Vendors can manage tickets, advertise available routes, and monitor payments, while users enjoy a smooth booking experience.
 
-## React Compiler
+This project demonstrates modern MERN Stack development with authentication, payment integration, and role-based dashboards.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌐 Live Website
 
-## Expanding the ESLint configuration
+👉 Live URL:
+https://your-live-site-link.com
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+(Replace with your deployed website link)
+
+✨ Key Features
+👤 User Features
+🔎 Search tickets by location
+🚌 View available transport tickets
+💳 Secure online payment system (Stripe)
+📄 View booking history
+✅ Real-time booking status update
+🔽 Sort tickets by price (Low → High / High → Low)
+🧑‍💼 Vendor Features
+➕ Add new tickets
+✏️ Update & manage tickets
+📢 Advertise tickets
+💰 View payment history by vendor email
+🛠 Admin Features
+👥 Manage users & vendors
+📊 Monitor bookings
+✔️ Accept or reject tickets
+🧰 Technologies Used
+Frontend
+React.js
+React Router
+Tailwind CSS
+DaisyUI
+Axios
+TanStack React Query
+Firebase Authentication
+React Icons
+SweetAlert2
+Backend
+Node.js
+Express.js
+MongoDB
+Stripe Payment Gateway
+JWT Authentication
+CORS
+dotenv

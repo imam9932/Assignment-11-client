@@ -8,6 +8,7 @@ import axios from 'axios';
 import UseAuth from '../../Context/UseAuth';
 import UseAxiosSecure from '../../Context/UseAxiosSecure';
 import SocialLogin from './SocialLogin';
+import { toast } from 'react-toastify';
  
  
  
@@ -51,6 +52,7 @@ const location=useLocation()
         .then(res=>{
           if(res.data.insertedId){
             console.log('user created in the DB')
+             toast.success(' Registration successful')
           }
         })
 

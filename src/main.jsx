@@ -32,6 +32,8 @@ import PaymentCancel from './Pages/DashboardPages/Payment/PaymentCancel.jsx';
 import TransactionId from './Pages/DashboardPages/UserDashBoard/TransactionId.jsx';
 import TotalRevenue from './Pages/DashboardPages/TotalRevenue/TotalRevenue.jsx';
 import LatestTickets from './Components/LatestTickets/LatestTickets.jsx';
+import AllRoutes from './Components/AllRoutes/AllRoutes.jsx';
+import WhyChooseUS from './Components/WhyChooseUs/WhyChooseUS.jsx';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
@@ -56,6 +58,16 @@ const router = createBrowserRouter([
         
         path:"/latest-tickets",
         element:  <LatestTickets></LatestTickets>
+       },
+       {
+        
+        path:"/all-routes",
+        element:   <AllRoutes></AllRoutes>
+       },
+       {
+        
+        path:"/why-choose-us",
+        element:  <WhyChooseUS></WhyChooseUS>
        },
        {
         
